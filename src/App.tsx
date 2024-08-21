@@ -16,7 +16,7 @@ const App = () => {
         return input
     }, [pattern, replacement, input]);
 
-
+    //s
     return (
         <div className="w-screen h-screen flex justify-center items-center">
             <div className="h-5/6 w-3/4">
