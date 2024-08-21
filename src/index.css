@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div#root {
+    width: 100vw;
+    overflow-x: clip;
+}
