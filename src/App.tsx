@@ -1,32 +1,25 @@
-import { useMemo } from "react";
-import { useInput } from "./useInput.ts";
 import Input from "./Input.tsx";
 import Result from "./Result.tsx";
-import { smartRegexReplace } from "./regex-funcs.ts";
 import TextArea from "./TextArea.tsx";
 import InputTextArea from "./InputTextArea.tsx";
+import Buttons from "./Buttons.tsx";
+import { useAppContext } from "./useAppContext.ts";
 
 const App = () => {
-    const [pattern, patternProps] = useInput();
-    const [replacement, replacementProps] = useInput();
-    const [input, inputProps] = useInput();
-    const result = useMemo(() => {
-        if (pattern && replacement && input)
-            return smartRegexReplace(pattern, replacement, input)
-        return input
-    }, [pattern, replacement, input]);
+    const {pattern, replacement} = useAppContext();
 
-    //s
     return (
-        <div className="w-screen h-screen flex justify-center items-center">
-            <div className="h-5/6 w-3/4">
-                <Input label="Regex" {...patternProps} />
+        <div className="w-screen min-h-screen h-screen dark:bg-background-800
+                        bg-white flex justify-center items-center text-white">
+            <div className="h-full flex flex-col w-4/5">
+                <Input label="Regex" {...pattern[1]} />
                 <div>
-                    <TextArea label="Replace" {...replacementProps} />
+                    <TextArea label="Replace" {...replacement[1]} />
                 </div>
-                <div>
-                    <InputTextArea {...inputProps} />
-                    <Result result={result} />
+                <div className="h-full grid grid-cols-[1fr_auto_50%]">
+                    <InputTextArea/>
+                    <Buttons/>
+                    <Result/>
                 </div>
             </div>
         </div>

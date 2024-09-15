@@ -13,7 +13,11 @@ const Input = ({ label, className, ...props }: Props) => {
                 {label}
             </label>
             <textarea
-                className="w-full border-2 rounded-md border-black outline-0"
+                className={cn(`
+                    outline-0 rounded-md w-full dark:bg-transparent border
+                    dark:border-secondary-200 border-secondary-600 px-1 font-mono`,
+                    className
+                )}
                 {...props}
             />
         </>

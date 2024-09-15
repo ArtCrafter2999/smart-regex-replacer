@@ -11,7 +11,9 @@ const Input = ({ label, ...props }: Props) => {
                 {label}
             </label>
             <input
-                className="w-full border-2 rounded-md border-black outline-0"
+                className="
+                        outline-0 rounded-md w-full dark:bg-transparent border
+                        dark:border-secondary-200 border-secondary-600 px-1"
                 type={"text"}
                 {...props}
             />
